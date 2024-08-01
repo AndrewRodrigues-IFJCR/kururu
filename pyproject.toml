@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "kururu"
+version = "0.1.0"
+description = ""
+authors = ["Andrew Rodrigues <andrew.rodrigues@aluno.ifsp.edu.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.1"
+pydantic-settings = "^2.4.0"
+authlib = "^1.3.1"
+pwdlib = {extras = ["argon2"], version = "^0.2.0"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.31"}
+python-multipart = "^0.0.9"
+flet = "^0.23.2"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-dotenv = "^1.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+blue = "^0.9.1"
+isort = "^5.13.2"
+taskipy = "^1.13.0"
+
+[tool.taskipy.tasks]
+test = 'pytest -s -x --cov=fast_zero -vv'
+format = 'isort .; blue .'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
